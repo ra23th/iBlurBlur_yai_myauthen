@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    BackgroundColor="White"
+    x:Class="MyAuthen.MainPage">
+    <StackLayout
+        Orientation="Vertical">
+        <Image
+            Source="header.png"
+            HeightRequest="150"
+            Aspect="AspectFill" />
+        <Entry
+            Placeholder="username"
+            HeightRequest="30" />
+        <Entry
+            Placeholder="password"
+            HeightRequest="30" />
+        <Button
+            Text="Login"
+            HeightRequest="50" />
+        <StackLayout Orientation="Horizontal">
+            <Label  Text="Delete"/>
+            <Label  Text="List Account"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
