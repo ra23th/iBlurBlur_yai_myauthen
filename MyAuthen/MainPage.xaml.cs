@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MyAuthen.Helpers;
 using Xamarin.Forms;
 
 namespace MyAuthen
@@ -18,12 +19,17 @@ namespace MyAuthen
             InitializeComponent();
 
             NavigationPage.SetHasNavigationBar(this, false);
+            UsernameEntry.Text = Setting.UserName;
+            PasswordEntry.Text = Setting.Password;
         }
 
         public void Login_clicked(object sender, EventArgs args)
         {
             string username = UsernameEntry.Text;
             string password = PasswordEntry.Text;
+
+            Setting.UserName = username;
+            Setting.Password = password;
 
             DisplayAlert("title", $"login: {username}, {password}", "close");
         }

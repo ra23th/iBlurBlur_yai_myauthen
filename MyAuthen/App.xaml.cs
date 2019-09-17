@@ -6,9 +6,11 @@ namespace MyAuthen
 {
     public partial class App : Application
     {
-        public App()
+        public App(string databasePath)
         {
             InitializeComponent();
+
+            var temp = databasePath;
 
             MainPage = new NavigationPage(new MainPage());
         }
