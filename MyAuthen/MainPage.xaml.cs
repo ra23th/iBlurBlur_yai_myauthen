@@ -16,6 +16,27 @@ namespace MyAuthen
         public MainPage()
         {
             InitializeComponent();
+
+            NavigationPage.SetHasNavigationBar(this, false);
         }
+
+        public void Login_clicked(object sender, EventArgs args)
+        {
+            string username = UsernameEntry.Text;
+            string password = PasswordEntry.Text;
+
+            DisplayAlert("title", $"login: {username}, {password}", "close");
+        }
+
+        public void Delete_clicked(object sender, EventArgs args)
+        {
+            DisplayAlert("title", "delete", "close");
+        }
+
+        public void List_clicked(object sender, EventArgs args)
+        {
+            DisplayAlert("title", "list", "close");
+        }
+
     }
 }
