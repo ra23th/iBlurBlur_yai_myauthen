@@ -14,11 +14,9 @@
             HeightRequest="150"
             Aspect="AspectFill" />
         <Entry
-            Placeholder="username"
-            HeightRequest="30" />
+            Placeholder="username"/>
         <Entry
-            Placeholder="password"
-            HeightRequest="30" />
+            Placeholder="password" />
         <Button
             Text="Login"
             HeightRequest="50" />
