@@ -21,6 +21,8 @@ namespace MyAuthen
             NavigationPage.SetHasNavigationBar(this, false);
             UsernameEntry.Text = Setting.UserName;
             PasswordEntry.Text = Setting.Password;
+
+            var data = new DatabaseAdapter(App.DatabasePath).GetUsers();
         }
 
         public void Login_clicked(object sender, EventArgs args)
