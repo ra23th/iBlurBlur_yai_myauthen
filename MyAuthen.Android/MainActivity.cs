@@ -23,7 +23,7 @@ namespace MyAuthen.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
-            string databasePath = DatabaseAccess.GetDatabasePath("UserPassword.db3");
+            string databasePath = DatabaseAccess.GetDatabasePath("tanakorn.db");
             LoadApplication(new App(databasePath));
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

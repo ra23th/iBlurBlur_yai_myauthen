@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MyAuthen.Helpers;
+using MyAuthen.Models;
 using Xamarin.Forms;
 
 namespace MyAuthen
@@ -14,6 +15,8 @@ namespace MyAuthen
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        private DatabaseAdapter DatabaseAdapter;
+
         public MainPage()
         {
             InitializeComponent();
@@ -22,7 +25,7 @@ namespace MyAuthen
             UsernameEntry.Text = Setting.UserName;
             PasswordEntry.Text = Setting.Password;
 
-            var data = new DatabaseAdapter(App.DatabasePath).GetUsers();
+            DatabaseAdapter = new DatabaseAdapter(App.DatabasePath);
         }
 
         public void Login_clicked(object sender, EventArgs args)
@@ -30,10 +33,24 @@ namespace MyAuthen
             string username = UsernameEntry.Text;
             string password = PasswordEntry.Text;
 
-            Setting.UserName = username;
-            Setting.Password = password;
+            var result = DatabaseAdapter.GetUser(username);
+            if(result == null)
+            {
+               var count = DatabaseAdapter.AddUser(new User(username, password));
+               DisplayAlert("title", $"insert: {count}", "close");
+            }
+            else if(result.Password == password)
+            {
+                Setting.UserName = username;
+                Setting.Password = password;
 
-            DisplayAlert("title", $"login: {username}, {password}", "close");
+                DisplayAlert("title", $"login: {username}, {password}", "close");
+            }
+            else
+            {
+                var count = DatabaseAdapter.EditUser(new User(username, password));
+                DisplayAlert("title", $"edit: {count}", "close");
+            }
         }
 
         public void Delete_clicked(object sender, EventArgs args)

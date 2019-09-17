@@ -65,6 +65,7 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Helpers\DatabaseAccess.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -129,5 +130,18 @@
       <Project>{3F21FD48-31D9-4511-A1C4-321ACA798B31}</Project>
       <Name>MyAuthen</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tanakorn.db" />
+    <BundleResource Include="Resources\UserPassword.db3" />
+    <BundleResource Include="Resources\Quicksand-Medium.ttf" />
+    <BundleResource Include="Resources\bg.jpg" />
+    <BundleResource Include="Resources\cmdev_logo.png" />
+    <BundleResource Include="Resources\header_main.png" />
+    <BundleResource Include="Resources\header.png" />
+    <BundleResource Include="Resources\xamarin_sqlite.png" />
   </ItemGroup>
 </Project>

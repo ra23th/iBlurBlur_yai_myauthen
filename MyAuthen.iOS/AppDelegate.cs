@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using MyAuthen.iOS.Helpers;
 using UIKit;
 
 namespace MyAuthen.iOS
@@ -23,7 +24,9 @@ namespace MyAuthen.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+
+            var databasePath = DatabaseAccess.GetDatabasePath("tanakorn.db");
+            LoadApplication(new App(databasePath));
 
             return base.FinishedLaunching(app, options);
         }
