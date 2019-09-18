@@ -13,6 +13,8 @@ namespace MyAuthen
         {
             InitializeComponent();
 
+            CustomListView.ItemsSource = new String[100];
+
             // lamda
             Task.Run(async ()=> {
                 // background thread

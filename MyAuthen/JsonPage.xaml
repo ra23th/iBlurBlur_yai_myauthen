@@ -1,8 +1,102 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="MyAuthen.JsonPage">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MyAuthen.JsonPage">
     <ContentPage.Content>
+        <AbsoluteLayout>
+
+
+            <ActivityIndicator
+                AbsoluteLayout.LayoutBounds="0.5, 0.5, 50, 50"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                x:Name="Loading"
+                IsRunning="True" />
+
+            <ListView
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                AbsoluteLayout.LayoutFlags="All"
+                BackgroundColor="Black"
+                SeparatorVisibility="None"
+                x:Name="CustomListView">
+                <ListView.Header>
+                    <ContentView
+                        Padding="20">
+                        <Image
+                            HeightRequest="100"
+                            Source="header.png" />
+                    </ContentView>
+                </ListView.Header>
+                <ListView.RowHeight>
+                    <OnPlatform
+                        x:TypeArguments="x:Int32"
+                        iOS="345"
+                        Android="360" />
+                </ListView.RowHeight>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid
+                                Padding="20"
+                                RowSpacing="15"
+                                ColumnSpacing="19">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="160" />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="cmdev_logo.png"
+                                       HeightRequest="60"
+                                       Grid.RowSpan="2"
+                                       Grid.Column="0" />
+                                <Label
+                                    Text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+                                    Grid.Row="0"
+                                    MaxLines="1"
+                                    TextColor="White"
+                                    LineBreakMode="TailTruncation"
+                                    Grid.Column="1" />
+                                <Label
+                                    TextColor="White"
+                                    MaxLines="2"
+                                    LineBreakMode="TailTruncation"
+                                    Text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+                                    Grid.Row="1"
+                                    Grid.Column="1" />
+                                <Image
+                                    Source="https://amp.businessinsider.com/images/5654150584307663008b4ed8-750-563.jpg"
+                                    Grid.Row="2"
+                                    Grid.Column="1"
+                                    Aspect="AspectFill">
+                                    <Image.HeightRequest>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS"
+                                                Value="190" />
+                                            <On Platform="Android"
+                                                Value="190" />
+                                        </OnPlatform>
+                                    </Image.HeightRequest>
+                                </Image>
+                                <BoxView
+                                    HeightRequest="1"
+                                    Color="Black"
+                                    Grid.Row="3"
+                                    Grid.ColumnSpan="2" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+        </AbsoluteLayout>
+
     </ContentPage.Content>
 </ContentPage>
