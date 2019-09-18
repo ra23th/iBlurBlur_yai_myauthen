@@ -11,7 +11,21 @@ namespace MyAuthen.Models
         public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public int Age { get; set; }
+
+        [Ignore]
+        public String BackgroundColor
+        {
+            get
+            {
+                if (Id % 2 == 0)
+                {
+                   return "#f3f5f4";
+                }
+                return "#ffffff";
+            }
+        }
+
+        
 
         public User(string username, string password)
         {
@@ -19,6 +33,9 @@ namespace MyAuthen.Models
             Password = password;
         }
 
+
+
+        public int Age { get; set; }
         public User(string username, string password, int age)
         {
             Username = username;

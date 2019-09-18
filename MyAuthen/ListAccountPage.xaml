@@ -5,8 +5,8 @@
     x:Class="MyAuthen.ListAccountPage">
     <ContentPage.Content>
 
-
         <ListView
+            ItemTapped="ListViewTapped"
             RowHeight="90"
             SeparatorVisibility="None"
             x:Name="CustomListView">
@@ -19,7 +19,9 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Vertical">
+                        <StackLayout
+                            BackgroundColor="{Binding BackgroundColor}"
+                            Orientation="Vertical">
                             <Label>
                                 <Label.FormattedText>
                                     <FormattedString>
@@ -27,7 +29,7 @@
                                             Text="username: "
                                             TextColor="#595a64" />
                                         <Span
-                                            Text="title"
+                                            Text="{Binding Username}"
                                             FontAttributes="Bold"
                                             TextColor="#141419" />
                                     </FormattedString>
@@ -41,7 +43,7 @@
                                             TextColor="#595a64" />
                                         <Span
                                             FontAttributes="Bold"
-                                            Text="sub title"
+                                            Text="{Binding Password}"
                                             TextColor="#141419" />
                                     </FormattedString>
                                 </Label.FormattedText>

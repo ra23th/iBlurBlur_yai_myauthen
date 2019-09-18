@@ -55,12 +55,14 @@ namespace MyAuthen
 
         public void Delete_clicked(object sender, EventArgs args)
         {
+            DatabaseAdapter.DeleteUsers();
             DisplayAlert("title", "delete", "close");
         }
 
         public void List_clicked(object sender, EventArgs args)
         {
-            DisplayAlert("title", "list", "close");
+            var result = DatabaseAdapter.GetUsers();
+            Navigation.PushAsync(new ListAccountPage(result));
         }
 
     }
