@@ -29,6 +29,13 @@ namespace MyAuthen.Helpers
             return result;
         }
 
+        public User GetUserAge(string username, int age)
+        {
+            // SQL command mapping
+            var result = Conn.Query<User>("select * from UserPassword where Username = ? && Age = 18", new String[] { username}).SingleOrDefault();
+            return result;
+        }
+
         public int AddUser(User user)
         {
             var count = Conn.Insert(user);
