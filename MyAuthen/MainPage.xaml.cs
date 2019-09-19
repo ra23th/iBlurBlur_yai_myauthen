@@ -44,7 +44,8 @@ namespace MyAuthen
                 Setting.UserName = username;
                 Setting.Password = password;
 
-                DisplayAlert("title", $"login: {username}, {password}", "close");
+                Navigation.PushAsync(new JsonPage());
+                Navigation.RemovePage(this);
             }
             else
             {

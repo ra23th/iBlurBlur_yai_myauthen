@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MyAuthen.Helpers;
 using MyAuthen.Models;
 using MyAuthen.Services;
 using Xamarin.Forms;
@@ -13,14 +14,35 @@ namespace MyAuthen
         {
             InitializeComponent();
 
-            CustomListView.ItemsSource = new String[100];
 
-            // lamda
-            Task.Run(async ()=> {
+            FeedData();
+        }
+
+        private void FeedData()
+        {
+            Task.Run(async () => {
                 // background thread
-                var result = await NetworkService.GetData(new User("admin", "password"));
-            });
+                var username = Setting.UserName;
+                var password = Setting.Password;
+                var user = new User(username, password);
 
+                var result = await NetworkService.GetData(user);
+
+
+                Device.BeginInvokeOnMainThread(() => {
+                    // main thread
+                    if (result != null)
+                    {
+                        JSONListView.ItemsSource = result.youtubes;
+                    }
+                    else
+                    {
+                        // todo
+                    }
+
+                    Loading.IsRunning = false;
+                });
+            });
         }
     }
 }
