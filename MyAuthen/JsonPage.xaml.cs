@@ -44,5 +44,18 @@ namespace MyAuthen
                 });
             });
         }
+
+
+        private void OpenYoutube(Object sender, ItemTappedEventArgs events)
+        {
+            // de-select
+            JSONListView.SelectedItem = false;
+
+            var item = events.Item as Youtube;
+
+            // Dependency Service
+            DependencyService.Get<IYoutubeService>().PlayYoutube(item.id);
+
+        }
     }
 }
